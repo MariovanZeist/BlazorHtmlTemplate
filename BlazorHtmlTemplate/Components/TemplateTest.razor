@@ -1,0 +1,29 @@
+﻿<div>
+    in razor file
+    <template>
+        test
+    </template>
+</div>
+<div>
+    generate by renderfragment1
+    @_renderFragment1
+</div>
+<div>
+    generate by renderfragment2
+    @_renderFragment2
+</div>
+
+@code {
+
+    RenderFragment _renderFragment1 = builder =>
+    {
+        builder.OpenElement(0, "template");
+        builder.AddContent(1, "test");
+        builder.CloseElement();
+    };
+
+    RenderFragment _renderFragment2 = builder =>
+    {
+        builder.AddMarkupContent(0, "<template>test</template>");
+    };
+}
